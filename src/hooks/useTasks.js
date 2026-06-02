@@ -16,20 +16,18 @@ const useTasks = () => {
 
   const newTaskInputRef = useRef(null)
 
-  const addTask = useCallback(() => {
-    if (newTaskTitle.trim().length > 0) {
+  const addTask = useCallback((title) => {
       const newTask = {
-        id: crypto?.randomUUID() ?? Date.now().toString(),
-        title: newTaskTitle,
-        isDone: false,
-      }
-
-      setTasks((prevTasks) => [...prevTasks, newTask])
-      setNewTaskTitle('')
-      setSearchQuery('')
-      newTaskInputRef.current.focus()
+      id: crypto?.randomUUID() ?? Date.now().toString(),
+      title,
+      isDone: false,
     }
-  }, [newTaskTitle])
+
+    setTasks((prevTasks) => [...prevTasks, newTask])
+    setNewTaskTitle('')
+    setSearchQuery('')
+    newTaskInputRef.current.focus()
+  }, [])
 
   const deleteAllTasks = useCallback(() => {
     const isConfirmed = confirm('Are you sure you want to delete all?')
