@@ -1,17 +1,19 @@
-import { memo, useContext, useMemo } from "react";
-import { TasksContext } from "@/entities/todo";
+import {memo, useContext, useMemo} from 'react'
+import { TasksContext } from '@/entities/todo'
 
 const TodoInfo = (props) => {
-  const { styles } = props;
+  const { styles } = props
 
-  const { tasks, deleteAllTasks } = useContext(TasksContext);
+  const {
+    tasks,
+    deleteAllTasks,
+  } = useContext(TasksContext)
 
-  const total = tasks.length;
-  const hasTasks = total > 0;
-
+  const total = tasks.length
+  const hasTasks = total > 0
   const done = useMemo(() => {
-    return tasks.filter(({ isDone }) => isDone).length;
-  }, [tasks]);
+    return tasks.filter(({ isDone }) => isDone).length
+  }, [tasks])
 
   return (
     <div className={styles.info}>
@@ -28,7 +30,7 @@ const TodoInfo = (props) => {
         </button>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default memo(TodoInfo);
+export default memo(TodoInfo)

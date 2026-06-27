@@ -1,14 +1,20 @@
-import { useContext } from "react";
-import Field from "@/shared/ui/Field";
-import { TasksContext } from "@/entities/todo";
+import Field from '@/shared/ui/Field'
+import { useContext } from 'react'
+import { TasksContext } from '@/entities/todo'
 
 const SearchTaskForm = (props) => {
-  const { styles } = props;
+  const { styles } = props
 
-  const { searchQuery, setSearchQuery } = useContext(TasksContext);
+  const {
+    searchQuery,
+    setSearchQuery,
+  } = useContext(TasksContext)
 
   return (
-    <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
+    <form
+      className={styles.form}
+      onSubmit={(event) => event.preventDefault()}
+    >
       <Field
         className={styles.field}
         label="Search task"
@@ -18,7 +24,7 @@ const SearchTaskForm = (props) => {
         onInput={(event) => setSearchQuery(event.target.value)}
       />
     </form>
-  );
-};
+  )
+}
 
-export default SearchTaskForm;
+export default SearchTaskForm
